@@ -100,6 +100,362 @@ body {
   height: 27px;
 }
 
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    ::-webkit-scrollbar { display: none; }
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+/* Filter Modal */
+.filter-modal {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* Buy/Rent Toggle */
+.toggle-container {
+    display: flex;
+    background: #f5f5f5;
+    border-radius: 25px;
+    padding: 4px;
+    margin-bottom: 30px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.toggle-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Merriweather", serif;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: #666;
+}
+
+.toggle-btn.active {
+    background: #A71F4B;
+    color: white;
+}
+
+/* Section Headers */
+.section-header {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.section-header:first-of-type {
+    margin-top: 0;
+}
+
+/* Property Type */
+.property-type-group {
+            margin-bottom: 20px;
+}
+
+.property-type-select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: "Merriweather", serif;
+  background: white;
+  cursor: pointer;
+}
+
+/* Radio Options */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #A71F4B;
+}
+
+.radio-option label {
+    font-size: 15px;
+    color: #555;
+    cursor: pointer;
+}
+
+/* Price Range & Square Feet */
+.range-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.range-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: "Merriweather", serif;
+}
+
+.range-separator {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Dropdown Selects */
+.dropdown-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.dropdown-group {
+    flex: 1;
+}
+
+.dropdown-label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.dropdown-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: "Merriweather", serif;
+    background: white;
+    cursor: pointer;
+}
+
+/* Counter Selects */
+.counter-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.counter-group {
+    flex: 1;
+    max-width: 260px;
+}
+
+.counter-label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.counter-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    overflow: hidden;
+}
+
+.counter-btn {
+    width: 40px;
+    height: 48px;
+    border: none;
+    background: #f8f8f8;
+    color: #666;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-btn:hover {
+    background: #e8e8e8;
+    color: #333;
+}
+
+.counter-btn:disabled {
+    background: #f0f0f0;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.counter-display {
+    flex: 1;
+    text-align: center;
+    padding: 12px 0px;
+    font-size: 15px;
+    font-family: "Merriweather", serif;
+    background: white;
+    border: none;
+    /* min-width: 10px; */
+}
+
+/* Shared Facility Grid Layout */
+.shared-facility-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+  margin-bottom: 20px;
+}
+
+.shared-facility-section {
+  margin-bottom: 20px;
+}
+
+/* Facility Checkboxes */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.checkbox-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #A71F4B;
+}
+
+.checkbox-option label {
+    font-size: 15px;
+    color: #555;
+    cursor: pointer;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.action-buttons .reset-btn,
+.action-buttons .search-btn {
+    flex: 1;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: "Merriweather", serif;
+    transition: all 0.3s ease;
+    min-width: 0; 
+    width: 100%; 
+}
+
+.action-buttons .reset-btn {
+    border: 2px solid #A71F4B;
+    background: white;
+    color: #A71F4B;
+}
+
+.action-buttons .reset-btn:hover {
+    background: #f5f5f5;
+}
+
+.action-buttons .search-btn {
+    border: 2px solid #A71F4B; /* Same border thickness as reset */
+    background: #A71F4B;
+    color: white;
+}
+
+.action-buttons .search-btn:hover {
+    background: #8B1A3F;
+}
+
+.reset-btn {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #A71F4B;
+    border-radius: 12px;
+    background: white;
+    color: #A71F4B;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: "Merriweather", serif;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    background: #f5f5f5;
+}
+
+
 .search-input {
   flex: 1;
   padding: 21px 50px;
@@ -276,6 +632,9 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  /*ini jg diganti*/
+  /* max-width: 1200px; 
+  margin: 0 auto;  */
 }
 
 .homepage-carousel-title-and-desc {
@@ -295,11 +654,22 @@ body {
   font-size: 0.95rem;
 }
 
+/* Carousel Container */
+.homepage-carousel-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 60px 80px 60px;
+}
+
+
 .homepage-carousel-content {
   display: flex;
   gap: 2%;
   justify-content: center;
   margin-top: 5%;
+  transition: transform 0.3s ease-in-out;
 }
 
 .homepage-carousel-card-content {
@@ -324,13 +694,14 @@ body {
 
 .homepage-carousel-card-content-label {
   color: white;
-  font-size: 10%;
+  font-size: 60%;
   padding: 0.5rem 0.1rem 0.5rem 0.5rem;
   background-color: #272a33;
   border-radius: 20px;
   display: flex;
   align-items: center;
   width: 90%;
+  transition: all 0.3s ease;
 }
 
 .homepage-carousel-card-content-label:hover {
@@ -352,7 +723,7 @@ body {
 .homepage-catalogue {
   display: flex;
   flex-direction: column;
-  margin-top: 10%;
+  margin-top: 3%;
   align-items: center;
 }
 
@@ -362,10 +733,48 @@ body {
   gap: 50px;
 }
 
-.homepage-catalogue-category:hover {
-  transition: ease-in-out 0.2s;
-  color: red;
-  text-decoration: underline;
+.homepage-catalogue-categories p {
+  font-size: 1.5rem;
+}
+
+.homepage-carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #272A33;
+  opacity: 50%;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepage-carousel-button-left {
+  left: 10px;
+}
+
+.homepage-carousel-button-right {
+  right: 10px;
+}
+
+.homepage-carousel-button-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 100%;
+}
+
+
+.homepage-catalogue-category.selected {
+  color: #A71F4B; 
+  text-decoration: underline; 
+  text-decoration-color: #A71F4B; 
+  text-underline-offset: 8px;
+  text-decoration-thickness: 2px;
 }
 
 .homepage-catalogue-grid {
@@ -380,23 +789,25 @@ body {
 .homepage-catalogue-status-and-wishlist {
   display: flex;
   justify-content: space-between;
-  margin-top: 5%;
+  margin-top: 0%; 
+  position: relative;
+  top: -10px; 
 }
 
 .homepage-catalogue-status {
-  padding-left: 0.1rem;
-  padding-top: 0.2rem;
-  padding: 0.3rem;
-  background-color: green;
-  border-radius: 12px;
+  padding: 0.3rem 0.7rem;
+  background-color: #3CBE66;
+  border-radius: 20px;
   color: white;
   margin-bottom: -15%;
   z-index: 99;
-  margin-left: 2%;
+  margin-left: 4%;
   margin-top: 13%;
-  width: 30%;
-  font-size: 8px;
+  width: auto;
+  font-size: 15px;
   text-align: center;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .homepage-catalogue-wishlist-container {
@@ -404,20 +815,20 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #f5f5f5;
-  margin-right: 0.5rem;
+  margin-right: 4%;
   background-color: #f5f5f5;
   border-radius: 50%;
   margin-bottom: -60%;
   z-index: 99;
   margin-left: 2%;
   margin-top: 14%;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 }
 
 .homepage-catalogue-wishlist-icon {
-  width: 50%;
-  height: 50%;
+  width: 70%;
+  height: 70%;
 }
 
 .homepage-catalogue-card-image {
@@ -500,6 +911,12 @@ body {
 .homepage-catalogue-highlight-legend-originalprice {
   font-weight: bold;
 }
+
+.homepage-catalogue-highlight-legend img {
+  width: 17px;
+  height: 17px; 
+}
+
 /* Footer Styles */
 .main-footer {
   display: flex;

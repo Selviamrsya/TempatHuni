@@ -20,6 +20,137 @@
                         <img src="../Assets/filter.png" alt="Filter" class="filter-icon">
                         Filter
                     </button>
+
+                    <div class="modal-overlay" id="modalOverlay">
+                        <div class="filter-modal">
+                            <button class="close-btn" id="closeBtn">×</button>
+                            
+                            <!-- Buy/Rent Toggle -->
+                            <div class="toggle-container">
+                                <button class="toggle-btn active" data-type="buy">Buy</button>
+                                <button class="toggle-btn" data-type="rent">Rent</button>
+                            </div>
+
+                            <!-- Property Type -->
+                            <div class="section-header">Property Type</div>
+                            <div class="property-type-group">
+                                <select class="property-type-select" id="propertyType">
+                                    <option value="">Choose property type</option>
+                                    <option value="house" selected>House</option>
+                                    <option value="apartment">Apartment</option>
+                                    <option value="villa">Villa</option>
+                                    <option value="studio">Studio</option>
+                                </select>
+                            </div>
+
+                            <!-- Filtered By -->
+                            <div class="section-header">Filtered By</div>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="popular" name="filter" value="popular" checked>
+                                    <label for="popular">Most Popular</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="newest" name="filter" value="newest">
+                                    <label for="newest">Newest Property</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="lowest" name="filter" value="lowest">
+                                    <label for="lowest">Lowest Price</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="highest" name="filter" value="highest">
+                                    <label for="highest">Highest Price</label>
+                                </div>
+                            </div>
+
+                            <!-- Price Range -->
+                            <div class="section-header">Price Range</div>
+                            <div class="range-container">
+                                <input type="text" class="range-input" placeholder="Rp. 0" id="minPrice">
+                                <span class="range-separator">-</span>
+                                <input type="text" class="range-input" placeholder="Rp. 0" id="maxPrice">
+                            </div>
+
+                            <!-- Square Feet -->
+                            <div class="section-header">Square Feet</div>
+                            <div class="range-container">
+                                <input type="text" class="range-input" placeholder="m²" id="minSqft">
+                                <span class="range-separator">-</span>
+                                <input type="text" class="range-input" placeholder="m²" id="maxSqft">
+                            </div>
+
+                            <!-- Bedroom & Bathroom -->
+                            <div class="counter-container">
+                                <div class="counter-group">
+                                    <label class="counter-label">Bedroom</label>
+                                    <div class="counter-wrapper">
+                                        <button class="counter-btn" id="bedroomMinus" data-target="bedroom">−</button>
+                                        <input type="text" class="counter-display" id="bedroom" value="0" readonly>
+                                        <button class="counter-btn" id="bedroomPlus" data-target="bedroom">+</button>
+                                    </div>
+                                </div>
+                                <div class="counter-group">
+                                    <label class="counter-label">Bathroom</label>
+                                    <div class="counter-wrapper">
+                                        <button class="counter-btn" id="bathroomMinus" data-target="bathroom">−</button>
+                                        <input type="text" class="counter-display" id="bathroom" value="0" readonly>
+                                        <button class="counter-btn" id="bathroomPlus" data-target="bathroom">+</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Facility -->
+                            <div class="section-header">Facility</div>
+                            <div class="checkbox-group">
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="garage" value="garage">
+                                    <label for="garage">Garage</label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="pool" value="pool">
+                                    <label for="pool">Swimming Pool</label>
+                                </div>
+                            </div>
+
+                            <!-- Shared Facility (Only for Rent) -->
+                            <div class="shared-facility-section" id="sharedFacilitySection" style="display: none;">
+                                <div class="section-header">Shared Facility</div>
+                                <div class="checkbox-group shared-facility-grid">
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="kitchen" value="kitchen">
+                                        <label for="kitchen">Kitchen</label>
+                                    </div>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="refrigerator" value="refrigerator">
+                                        <label for="refrigerator">Refrigerator</label>
+                                    </div>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="wifi" value="wifi">
+                                        <label for="wifi">WiFi</label>
+                                    </div>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="sharedPool" value="sharedPool">
+                                        <label for="sharedPool">Swimming Pool</label>
+                                    </div>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="tv" value="tv">
+                                        <label for="tv">TV</label>
+                                    </div>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="sharedBathroom" value="sharedBathroom">
+                                        <label for="sharedBathroom">Bathroom</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="action-buttons">
+                                <button class="reset-btn" id="resetBtn">Reset All</button>
+                                <button class="search-btn" id="searchBtn">Search</button>
+                            </div>
+                        </div>
+                    </div>
                     <input type="text" class="search-input" placeholder="Where are you looking to stay or live?" id="searchInput">
                     <button class="search-btn" id="searchBtn">
                         <img src="../Assets/search.png" alt="Search" class="search-icon">
@@ -86,24 +217,74 @@
             <h2 class="homepage-carousel-title">Find the near home near the next places you love </h2>
             <p class="homepage-carousel-desc"> Discover property options close in your favorite place because where you live matters <br>just as how much you live</p>
         </div>
-        <div class="homepage-carousel-content">
-            <div class="homepage-carousel-card">
-                <img src="../Assets/Pekan-Baru.png" alt="" class="homepage-carousel-card-image">
-                <div class="homepage-carousel-card-content">
-                    <h2 class="homepage-carousel-card-content-title">Pekan Baru</h2>
-                    <div class="homepage-carousel-card-content-labels">
-                        <p class="homepage-carousel-card-content-label"><img src="../assets/flash.png" alt="" class="homepage-carousel-card-content-label-logo">Booking Instant</p> 
-                        <p class="homepage-carousel-card-content-label"><img src="../assets/pin-alt.png" alt="" class="homepage-carousel-card-content-label-logo">21 Locations</p> 
-                        <p class="homepage-carousel-card-content-label"><img src="../assets/tree.png" alt="" class="homepage-carousel-card-content-label-logo-tree">Nature & Adventure</p> 
-                        <p class="homepage-carousel-card-content-label"><img src="../assets/couple.png" alt="" class="homepage-carousel-card-content-label-logo">Local Visit</p> 
+
+        <div class="homepage-carousel-container">
+                <button class="homepage-carousel-button homepage-carousel-button-left" id="carouselLeftBtn">
+                    <img src="../Assets/arrow-narrow-left.png" alt="Previous" class="homepage-carousel-button-icon">
+                </button>
+                
+            <!-- </div> -->
+            
+            <div class="homepage-carousel-content" id="carouselContent">
+                <div class="homepage-carousel-card">
+                    <img src="../Assets/Pekan-Baru.png" alt="" class="homepage-carousel-card-image">
+                    <div class="homepage-carousel-card-content">
+                        <h2 class="homepage-carousel-card-content-title">Pekan Baru</h2>
+                        <div class="homepage-carousel-card-content-labels">
+                            <p class="homepage-carousel-card-content-label"><img src="../assets/flash.png" alt="" class="homepage-carousel-card-content-label-logo">Booking Instant</p> 
+                            <p class="homepage-carousel-card-content-label"><img src="../assets/pin-alt.png" alt="" class="homepage-carousel-card-content-label-logo">21 Locations</p> 
+                            <p class="homepage-carousel-card-content-label"><img src="../assets/tree.png" alt="" class="homepage-carousel-card-content-label-logo-tree">Nature & Adventure</p> 
+                            <p class="homepage-carousel-card-content-label"><img src="../assets/couple.png" alt="" class="homepage-carousel-card-content-label-logo">Local Visit</p> 
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="homepage-carousel-card">
-                <img src="../Assets/Jakarta.png" alt="" class="homepage-carousel-card-image">
-                <div class="homepage-carousel-card-content">
+                <div class="homepage-carousel-card">
+                    <img src="../Assets/Jakarta.png" alt="" class="homepage-carousel-card-image">
                     <div class="homepage-carousel-card-content">
-                        <h2 class="homepage-carousel-card-content-title">Jakarta</h2>
+                        <div class="homepage-carousel-card-content">
+                            <h2 class="homepage-carousel-card-content-title">Jakarta</h2>
+                            <div class="homepage-carousel-card-content-labels">
+                                <p class="homepage-carousel-card-content-label"><img src="../assets/flash.png" alt="" class="homepage-carousel-card-content-label-logo">Booking Instant</p> 
+                                <p class="homepage-carousel-card-content-label"><img src="../assets/pin-alt.png" alt="" class="homepage-carousel-card-content-label-logo">21 Locations</p> 
+                                <p class="homepage-carousel-card-content-label"><img src="../assets/tree.png" alt="" class="homepage-carousel-card-content-label-logo-tree">Nature & Adventure</p> 
+                                <p class="homepage-carousel-card-content-label"><img src="../assets/couple.png" alt="" class="homepage-carousel-card-content-label-logo">Local Visit</p> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="homepage-carousel-card">
+                    <img src="../Assets/Bandung.png" alt="" class="homepage-carousel-card-image">
+                    <div class="homepage-carousel-card-content">
+                        <div class="homepage-carousel-card-content">
+                            <h2 class="homepage-carousel-card-content-title">Bandung</h2>
+                            <div class="homepage-carousel-card-content-labels">
+                                <p class="homepage-carousel-card-content-label"><img src="../assets/flash.png" alt="" class="homepage-carousel-card-content-label-logo">Booking Instant</p> 
+                                <p class="homepage-carousel-card-content-label"><img src="../assets/pin-alt.png" alt="" class="homepage-carousel-card-content-label-logo">21 Locations</p> 
+                                <p class="homepage-carousel-card-content-label"><img src="../assets/tree.png" alt="" class="homepage-carousel-card-content-label-logo-tree">Nature & Adventure</p> 
+                                <p class="homepage-carousel-card-content-label"><img src="../assets/couple.png" alt="" class="homepage-carousel-card-content-label-logo">Local Visit</p> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="homepage-carousel-card">
+                    <img src="../Assets/malang_refined.png" alt="" class="homepage-carousel-card-image">
+                    <div class="homepage-carousel-card-content">
+                        <div class="homepage-carousel-card-content">
+                            <h2 class="homepage-carousel-card-content-title">Malang</h2>
+                            <div class="homepage-carousel-card-content-labels">
+                                <p class="homepage-carousel-card-content-label"><img src="../assets/flash.png" alt="" class="homepage-carousel-card-content-label-logo">Booking Instant</p> 
+                                <p class="homepage-carousel-card-content-label"><img src="../assets/pin-alt.png" alt="" class="homepage-carousel-card-content-label-logo">21 Locations</p> 
+                                <p class="homepage-carousel-card-content-label"><img src="../assets/tree.png" alt="" class="homepage-carousel-card-content-label-logo-tree">Nature & Adventure</p> 
+                                <p class="homepage-carousel-card-content-label"><img src="../assets/couple.png" alt="" class="homepage-carousel-card-content-label-logo">Local Visit</p> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="homepage-carousel-card">
+                    <img src="../Assets/Pekan-Baru.png" alt="" class="homepage-carousel-card-image">
+                    <div class="homepage-carousel-card-content">
+                        <h2 class="homepage-carousel-card-content-title">Pekan Baru</h2>
                         <div class="homepage-carousel-card-content-labels">
                             <p class="homepage-carousel-card-content-label"><img src="../assets/flash.png" alt="" class="homepage-carousel-card-content-label-logo">Booking Instant</p> 
                             <p class="homepage-carousel-card-content-label"><img src="../assets/pin-alt.png" alt="" class="homepage-carousel-card-content-label-logo">21 Locations</p> 
@@ -113,36 +294,11 @@
                     </div>
                 </div>
             </div>
-            <div class="homepage-carousel-card">
-                <img src="../Assets/Bandung.png" alt="" class="homepage-carousel-card-image">
-                <div class="homepage-carousel-card-content">
-                    <div class="homepage-carousel-card-content">
-                        <h2 class="homepage-carousel-card-content-title">Bandung</h2>
-                        <div class="homepage-carousel-card-content-labels">
-                            <p class="homepage-carousel-card-content-label"><img src="../assets/flash.png" alt="" class="homepage-carousel-card-content-label-logo">Booking Instant</p> 
-                            <p class="homepage-carousel-card-content-label"><img src="../assets/pin-alt.png" alt="" class="homepage-carousel-card-content-label-logo">21 Locations</p> 
-                            <p class="homepage-carousel-card-content-label"><img src="../assets/tree.png" alt="" class="homepage-carousel-card-content-label-logo-tree">Nature & Adventure</p> 
-                            <p class="homepage-carousel-card-content-label"><img src="../assets/couple.png" alt="" class="homepage-carousel-card-content-label-logo">Local Visit</p> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="homepage-carousel-card">
-                <img src="../Assets/malang_refined.png" alt="" class="homepage-carousel-card-image">
-                <div class="homepage-carousel-card-content">
-                    <div class="homepage-carousel-card-content">
-                        <h2 class="homepage-carousel-card-content-title">Malang</h2>
-                        <div class="homepage-carousel-card-content-labels">
-                            <p class="homepage-carousel-card-content-label"><img src="../assets/flash.png" alt="" class="homepage-carousel-card-content-label-logo">Booking Instant</p> 
-                            <p class="homepage-carousel-card-content-label"><img src="../assets/pin-alt.png" alt="" class="homepage-carousel-card-content-label-logo">21 Locations</p> 
-                            <p class="homepage-carousel-card-content-label"><img src="../assets/tree.png" alt="" class="homepage-carousel-card-content-label-logo-tree">Nature & Adventure</p> 
-                            <p class="homepage-carousel-card-content-label"><img src="../assets/couple.png" alt="" class="homepage-carousel-card-content-label-logo">Local Visit</p> 
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <button class="homepage-carousel-button homepage-carousel-button-right" id="carouselRightBtn">
+                    <img src="../Assets/arrow-right.png" alt="Next" class="homepage-carousel-button-icon">
+                </button>
         </div>
-        </div>
+        <!-- </div> -->
     </section>
         <section class="homepage-catalogue">
             <div class="homepage-catalogue-categories">
